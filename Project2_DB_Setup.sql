@@ -18,6 +18,14 @@ create table if not exists recipes (
     foreign key (owner) references users(userId)
 );
 
+create table if not exists savedRecipes (
+    userId int,
+    recipeId int,
+    primary key (userId, recipeId),
+    foreign key (userId) references users(userId),
+    foreign key (recipeId) references recipes(recipeId)
+);
+
 create table if not exists reviews (
     reviewId int,
     recipesId int,
@@ -49,5 +57,5 @@ create table if not exists suggestions (
     foreign key (recipeId) references recipes(recipeId) on delete cascade
 );
 
---drop table suggestions, users, recipes, reviews, ingredients, rijunction;
+--drop table suggestions, users, recipes, reviews, ingredients, rijunction, savedrecipes;
 
