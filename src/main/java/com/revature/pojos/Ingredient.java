@@ -25,6 +25,7 @@ public class Ingredient {
 		super();
 	}
 
+	//Just a check
 	public Ingredient(int ingredientId, String text) {
 		super();
 		this.ingredientId = ingredientId;
