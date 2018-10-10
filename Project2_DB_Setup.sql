@@ -57,5 +57,10 @@ create table if not exists suggestions (
     foreign key (recipeId) references recipes(recipeId) on delete cascade
 );
 
+create sequence USERID_SEQ start 1;
+create sequence RECIPEID_SEQ start 1;
+create sequence REVIEWSID_SEQ start 1;
+create sequence INGREDIENTID_SEQ start 1;
+create sequence SUGGESTIONID_SEQ start 1;
 --drop table suggestions, users, recipes, reviews, ingredients, rijunction, savedrecipes;
 
