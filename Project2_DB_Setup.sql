@@ -1,5 +1,7 @@
 create table if not exists users (
     userId int,
+    username text,
+    password text,
     role text,
     fName text,
     lName text,
