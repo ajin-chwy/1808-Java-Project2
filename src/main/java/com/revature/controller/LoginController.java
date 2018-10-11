@@ -1,5 +1,7 @@
 package com.revature.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,32 +14,25 @@ import com.revature.pojos.User;
 import com.revature.service.UserService;
 
 @RestController
+//@CrossOrigin(origins = "http://localhost:4200")
 public class LoginController {
 
 	@Autowired
 	private UserService userService;
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public String loginGet(HttpSession sess) {
-		if(sess.getAttribute("user") != null) {
-			// TODO 
-		}
-		else {
-			// TODO
-		}
-		return null;
+	public List<User> loginGetAll(HttpSession sess) {
+		return userService.getAllUsers();
+	}
+	
+	@RequestMapping(value="/login/{id}", method=RequestMethod.GET)
+	public User loginGet (HttpSession sess, int id) {
+		return userService.getUser(id);
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST, produces="application/json")
-	public String loginPost(@RequestBody User use, HttpSession sess) {
-		User authUser = userService.validateUser(use);
+	public User loginPost(@RequestBody User use, HttpSession sess) {
+		return userService.validateUser(use);
 		
-		if(authUser != null) {
-			sess.setAttribute("user", authUser);
-			//TODO implement when user is correctly logged in
-			
-		}
-		//TODO implement when user is not correctly logged in	
-		return null;
 	}
 }
