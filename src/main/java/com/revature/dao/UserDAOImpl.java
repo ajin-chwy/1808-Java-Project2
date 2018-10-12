@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.springframework.stereotype.Service;
 
 import com.revature.pojos.User;
 import com.revature.util.SessionUtil;
 
+@Service
 public class UserDAOImpl implements UserDAO{
 
 	private Session curr;
@@ -20,7 +22,7 @@ public class UserDAOImpl implements UserDAO{
 	public List<User> getAllUser() {
 		List<User> uList = new ArrayList<User>();
 		curr = SessionUtil.getSession();
-		uList = (List<User>) curr.createQuery("from Users").list();
+		uList = curr.createCriteria(User.class).list();
 		return uList;
 	}
 
