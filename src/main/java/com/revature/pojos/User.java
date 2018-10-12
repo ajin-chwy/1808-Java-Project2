@@ -26,6 +26,12 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USERID_SEQ")
 	private int userId;
 	
+	@Column(name="USERNAME")
+	private String username;
+	
+	@Column(name="PASSWORD")
+	private String password;
+
 	@Column(name="ROLE")
 	private String role;
 	
@@ -41,32 +47,49 @@ public class User {
 	@Column(name="DELETED")
 	private boolean deleted;
 	
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(name="SAVEDRECIPES",
-			joinColumns=@JoinColumn(name="USERID"),
-			inverseJoinColumns=@JoinColumn(name="RECIPEID"))
-	private Set<Recipe> savedRecipes;
-	
-	@OneToMany(mappedBy="owner", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private Set<Recipe> ownedRecipes;
+//	@ManyToMany(fetch=FetchType.LAZY)
+//	@JoinTable(name="SAVEDRECIPES",
+//			joinColumns=@JoinColumn(name="USERID"),
+//			inverseJoinColumns=@JoinColumn(name="RECIPEID"))
+//	private Set<Recipe> savedRecipes;
+//	
+//	@OneToMany(mappedBy="owner", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+//	private Set<Recipe> ownedRecipes;
 
 	public User() {
 		super();
 	}
 
-	public User(int userId, String role, String fName, String lName, String address, boolean deleted,
-			Set<Recipe> savedRecipes, Set<Recipe> ownedRecipes) {
-		super();
-		this.userId = userId;
-		this.role = role;
-		this.fName = fName;
-		this.lName = lName;
-		this.address = address;
-		this.deleted = deleted;
-		this.savedRecipes = savedRecipes;
-		this.ownedRecipes = ownedRecipes;
+//	public User(int userId, String role, String fName, String lName, String address, boolean deleted,
+//			Set<Recipe> savedRecipes, Set<Recipe> ownedRecipes) {
+//		super();
+//		this.userId = userId;
+//		this.role = role;
+//		this.fName = fName;
+//		this.lName = lName;
+//		this.address = address;
+//		this.deleted = deleted;
+//		this.savedRecipes = savedRecipes;
+//		this.ownedRecipes = ownedRecipes;
+//	}
+
+	
+	public String getUsername() {
+		return username;
 	}
 
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	public int getUserId() {
 		return userId;
 	}
@@ -115,28 +138,49 @@ public class User {
 		this.deleted = deleted;
 	}
 
-	public Set<Recipe> getSavedRecipes() {
-		return savedRecipes;
-	}
-
-	public void setSavedRecipes(Set<Recipe> savedRecipes) {
-		this.savedRecipes = savedRecipes;
-	}
-
-	public Set<Recipe> getOwnedRecipes() {
-		return ownedRecipes;
-	}
-
-	public void setOwnedRecipes(Set<Recipe> ownedRecipes) {
-		this.ownedRecipes = ownedRecipes;
+	public User(int userId, String username, String password, String role, String fName, String lName, String address,
+			boolean deleted) {
+		super();
+		this.userId = userId;
+		this.username = username;
+		this.password = password;
+		this.role = role;
+		this.fName = fName;
+		this.lName = lName;
+		this.address = address;
+		this.deleted = deleted;
 	}
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", role=" + role + ", fName=" + fName + ", lName=" + lName + ", address="
-				+ address + ", deleted=" + deleted + ", savedRecipes=" + savedRecipes + ", ownedRecipes=" + ownedRecipes
-				+ "]";
+		return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", role=" + role
+				+ ", fName=" + fName + ", lName=" + lName + ", address=" + address + ", deleted=" + deleted + "]";
 	}
+	
+	
+
+//	public Set<Recipe> getSavedRecipes() {
+//		return savedRecipes;
+//	}
+//
+//	public void setSavedRecipes(Set<Recipe> savedRecipes) {
+//		this.savedRecipes = savedRecipes;
+//	}
+//
+//	public Set<Recipe> getOwnedRecipes() {
+//		return ownedRecipes;
+//	}
+//
+//	public void setOwnedRecipes(Set<Recipe> ownedRecipes) {
+//		this.ownedRecipes = ownedRecipes;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "User [userId=" + userId + ", role=" + role + ", fName=" + fName + ", lName=" + lName + ", address="
+//				+ address + ", deleted=" + deleted + ", savedRecipes=" + savedRecipes + ", ownedRecipes=" + ownedRecipes
+//				+ "]";
+//	}
 	
 	
 }

@@ -65,4 +65,5 @@ create sequence REVIEWSID_SEQ start 1;
 create sequence INGREDIENTID_SEQ start 1;
 create sequence SUGGESTIONID_SEQ start 1;
 --drop table suggestions, users, recipes, reviews, ingredients, rijunction, savedrecipes;
+--drop sequence USERID_SEQ, RECIPEID_SEQ, REVIEWSID_SEQ, INGREDIENTID_SEQ, SUGGESTIONID_SEQ;
 
