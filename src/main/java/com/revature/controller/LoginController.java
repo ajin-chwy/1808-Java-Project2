@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +22,7 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value="/login", method=RequestMethod.GET)
+	@RequestMapping(value="/login", method=RequestMethod.GET, produces="application/json")
 	public List<User> loginGetAll(HttpSession sess) {
 		System.out.println("In here");
 		List<User> uList = userService.getAllUsers();
@@ -30,12 +31,13 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/login/{id}", method=RequestMethod.GET)
-	public User loginGet (HttpSession sess, int id) {
+	public User loginGet (HttpSession sess, @PathVariable(value="id") Integer id) {
 		System.out.println("In there");
+		System.out.println(id);
 		return userService.getUser(id);
 	}
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST, produces="application/json")
+	@RequestMapping(value="/login", method=RequestMethod.POST, produces="application/json", consumes= {"application/json"})
 	public User loginPost(@RequestBody User use, HttpSession sess) {
 		return userService.validateUser(use);
 	}
