@@ -9,16 +9,16 @@
 <div>
 
   <ul>
-    <li *ngFor="let user of users">{{ user.username }}</li>
+    <li *ngFor="let user of users">{{ user.fName }}</li>
   </ul>
   
-  <form action="">
+  <form>
     <label for="username">Username</label>
-    <input type="text" name="username" placeholder="username" id="username" required>
+    <input [(ngModel)]="username" type="text" name="username" placeholder="username" id="username" required>
     <br>
     <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <input type="submit">
+    <input [(ngModel)]="password" type="password" name="password" id="password" required>
+    <button class="btn btn-primary" (click)="login()">Submit</button>
   </form>
-  
+  <p>{{password}} + {{username}}</p>
 </div>

@@ -10,9 +10,13 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  private userUrl = 'http://10.41.27.189:8081/RecipeSharingApplication/login';
+  private userUrl = 'http://Localhost:8081/RecipeSharingApplication/login';
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.userUrl);
+  }
+
+  verifyUser(user: User): Observable<User> {
+      return this.http.post<User>(this.userUrl, user, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
   }
 }
