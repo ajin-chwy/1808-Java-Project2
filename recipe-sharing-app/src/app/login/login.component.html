@@ -1,19 +1,24 @@
 <h1>Enjoy Cooking</h1>
 <h3>Browse hundreds of recipes</h3>
 
-<div>
-    <button type="button" class="btn btn-primary mx-2">Login</button>
-    <button type="button" class="btn btn-primary mx-2">Sign Up</button>
-</div>
+  
+
 
 <br>
 
 <div>
+
+  <ul>
+    <li *ngFor="let user of users">{{ user.username }}</li>
+  </ul>
+  
   <form action="">
     <label for="username">Username</label>
     <input type="text" name="username" placeholder="username" id="username" required>
     <br>
     <label for="password">Password</label>
     <input type="password" name="password" id="password" required>
+    <input type="submit">
   </form>
+  
 </div>
