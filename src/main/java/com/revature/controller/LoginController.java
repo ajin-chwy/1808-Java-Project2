@@ -24,7 +24,7 @@ public class LoginController {
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET, produces="application/json")
 	public List<User> loginGetAll(HttpSession sess) {
-		System.out.println("In here");
+		System.out.println("In loginGetAll");
 		List<User> uList = userService.getAllUsers();
 		System.out.println(uList);
 		return uList;
@@ -32,13 +32,15 @@ public class LoginController {
 	
 	@RequestMapping(value="/login/{id}", method=RequestMethod.GET)
 	public User loginGet (HttpSession sess, @PathVariable(value="id") Integer id) {
-		System.out.println("In there");
+		System.out.println("In loginGet");
 		System.out.println(id);
 		return userService.getUser(id);
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST, produces="application/json", consumes= {"application/json"})
 	public User loginPost(@RequestBody User use, HttpSession sess) {
+		System.out.println("In loginPost");
+		System.out.println(use);
 		return userService.validateUser(use);
 	}
 }
