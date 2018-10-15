@@ -60,20 +60,6 @@ public class User {
 		super();
 	}
 
-//	public User(int userId, String role, String fName, String lName, String address, boolean deleted,
-//			Set<Recipe> savedRecipes, Set<Recipe> ownedRecipes) {
-//		super();
-//		this.userId = userId;
-//		this.role = role;
-//		this.fName = fName;
-//		this.lName = lName;
-//		this.address = address;
-//		this.deleted = deleted;
-//		this.savedRecipes = savedRecipes;
-//		this.ownedRecipes = ownedRecipes;
-//	}
-
-	
 	public String getUsername() {
 		return username;
 	}

@@ -19,8 +19,12 @@ public class UserServiceImpl implements UserService{
 		if(user == null) {
 			return null;
 		}
-		User authUser = userDao.getUser(user.getUserId());
-		return authUser;
+		for(User u: userDao.getAllUser()) {
+			if(u.getUsername().equals(user.getUsername()) && u.getPassword().equals(user.getPassword())) {
+				return u;
+			}
+		}
+		return null;
 	}
 
 	@Override
