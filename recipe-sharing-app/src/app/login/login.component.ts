@@ -15,9 +15,11 @@ export class LoginComponent implements OnInit {
   username: '';
   password: '';
   user: User;
+  sess: User = null;
   users: User[];
   ngOnInit() {
     this.userService.getUsers().subscribe(users => this.users = users);
+    this.checkSess();
   }
 
   login(): void {
@@ -34,6 +36,19 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/login']);
     } else {
       this.router.navigate(['/register']);
+    }
+  }
+
+  checkSess(): void {
+    this.userService.getSessionStatus().subscribe(result => this.afterSess(result));
+
+  }
+
+  afterSess(user: User): void {
+    if (user == null) {
+      console.log('Session is empty');
+    } else {
+      this.sess = user;
     }
   }
 
