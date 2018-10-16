@@ -10,13 +10,18 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  private userUrl = 'http://Localhost:8081/RecipeSharingApplication/login';
+  private userUrl = 'http://Localhost:8081/RecipeSharingApplication/';
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.userUrl);
+    return this.http.get<User[]>(this.userUrl + 'login');
   }
 
   verifyUser(user: User): Observable<User> {
-      return this.http.post<User>(this.userUrl, user, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
+    return this.http.post<User>(this.userUrl + 'login', user, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
   }
+
+  registerUser(user: User): Observable<User> {
+    return this.http.post<User>(this.userUrl + 'register', user, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
+  }
+
 }

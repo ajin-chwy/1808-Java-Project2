@@ -41,6 +41,10 @@ public class LoginController {
 	public User loginPost(@RequestBody User use, HttpSession sess) {
 		System.out.println("In loginPost");
 		System.out.println(use);
-		return userService.validateUser(use);
+		User authUser = userService.validateUser(use);
+		if(authUser != null) {
+			sess.setAttribute("user", authUser);
+		}
+		return authUser;
 	}
 }

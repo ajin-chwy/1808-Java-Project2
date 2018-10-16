@@ -31,7 +31,16 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	public void createUser(User use) {
-		SessionUtil.getSession().saveOrUpdate(use);
+		if(use == null) {
+			System.out.println("use is null");
+		} else {
+			System.out.println("use is not null");
+		}
+		curr = SessionUtil.getSession();
+		curr.beginTransaction();
+		curr.saveOrUpdate(use);
+		curr.getTransaction().commit();
+		System.out.println("user insert?");
 	}
 
 	public void updateUser(User use) {

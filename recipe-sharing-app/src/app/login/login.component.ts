@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    const tempUser = new User(this.username, this.password);
+    const tempUser = new User(this.username, this.password, null, null, null, null, false);
     this.userService.verifyUser(tempUser).subscribe(use => {
       this.updateUser(use);
     });
