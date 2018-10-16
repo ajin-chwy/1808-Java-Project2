@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     if (this.user == null) {
       this.router.navigate(['/login']);
     } else {
-      this.router.navigate(['/register']);
+      this.router.navigate(['/home']);
     }
   }
 
