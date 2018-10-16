@@ -7,12 +7,16 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
+    CreateRecipeComponent
   ],
   imports: [
     BrowserModule,

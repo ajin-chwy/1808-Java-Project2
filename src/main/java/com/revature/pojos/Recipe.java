@@ -40,34 +40,34 @@ public class Recipe {
 	@Column(name="DELETED")
 	private boolean deleted;
 	
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(name="RIJUNCTION",
-				joinColumns=@JoinColumn(name="RECIPE"),
-				inverseJoinColumns=@JoinColumn(name="INGREDIENT"))
-	private Set<Ingredient> ingredients;
+//	@ManyToMany(fetch=FetchType.LAZY)
+//	@JoinTable(name="RIJUNCTION",
+//				joinColumns=@JoinColumn(name="RECIPE"),
+//				inverseJoinColumns=@JoinColumn(name="INGREDIENT"))
+//	private Set<Ingredient> ingredients;
 	
-	@OneToMany(mappedBy="targetRecipe", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private Set<Review> reviews;
+//	@OneToMany(mappedBy="targetRecipe", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+//	private Set<Review> reviews;
 	
-	@OneToMany(mappedBy="targetRecipe", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private Set<Suggestion> suggestions;
+//	@OneToMany(mappedBy="targetRecipe", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+//	private Set<Suggestion> suggestions;
 
 	public Recipe() {
 		super();
 	}
 
-	public Recipe(int recipeId, User owner, String name, String steps, boolean deleted, Set<Ingredient> ingredients,
-			Set<Review> reviews, Set<Suggestion> suggestions) {
-		super();
-		this.recipeId = recipeId;
-		this.owner = owner;
-		this.name = name;
-		this.steps = steps;
-		this.deleted = deleted;
-		this.ingredients = ingredients;
-		this.reviews = reviews;
-		this.suggestions = suggestions;
-	}
+//	public Recipe(int recipeId, User owner, String name, String steps, boolean deleted, Set<Ingredient> ingredients,
+//			Set<Review> reviews, Set<Suggestion> suggestions) {
+//		super();
+//		this.recipeId = recipeId;
+//		this.owner = owner;
+//		this.name = name;
+//		this.steps = steps;
+//		this.deleted = deleted;
+//		this.ingredients = ingredients;
+//		this.reviews = reviews;
+//		this.suggestions = suggestions;
+//	}
 
 	public int getRecipeId() {
 		return recipeId;
@@ -109,36 +109,51 @@ public class Recipe {
 		this.deleted = deleted;
 	}
 
-	public Set<Ingredient> getIngredients() {
-		return ingredients;
-	}
-
-	public void setIngredients(Set<Ingredient> ingredients) {
-		this.ingredients = ingredients;
-	}
-
-	public Set<Review> getReviews() {
-		return reviews;
-	}
-
-	public void setReviews(Set<Review> reviews) {
-		this.reviews = reviews;
-	}
-
-	public Set<Suggestion> getSuggestions() {
-		return suggestions;
-	}
-
-	public void setSuggestions(Set<Suggestion> suggestions) {
-		this.suggestions = suggestions;
-	}
-
 	@Override
 	public String toString() {
 		return "Recipe [recipeId=" + recipeId + ", owner=" + owner + ", name=" + name + ", steps=" + steps
-				+ ", deleted=" + deleted + ", ingredients=" + ingredients + ", reviews=" + reviews + ", suggestions="
-				+ suggestions + "]";
+				+ ", deleted=" + deleted + "]";
 	}
+
+	public Recipe(int recipeId, User owner, String name, String steps, boolean deleted) {
+		super();
+		this.recipeId = recipeId;
+		this.owner = owner;
+		this.name = name;
+		this.steps = steps;
+		this.deleted = deleted;
+	}
+
+//	public Set<Ingredient> getIngredients() {
+//		return ingredients;
+//	}
+//
+//	public void setIngredients(Set<Ingredient> ingredients) {
+//		this.ingredients = ingredients;
+//	}
+//
+//	public Set<Review> getReviews() {
+//		return reviews;
+//	}
+//
+//	public void setReviews(Set<Review> reviews) {
+//		this.reviews = reviews;
+//	}
+//
+//	public Set<Suggestion> getSuggestions() {
+//		return suggestions;
+//	}
+//
+//	public void setSuggestions(Set<Suggestion> suggestions) {
+//		this.suggestions = suggestions;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "Recipe [recipeId=" + recipeId + ", owner=" + owner + ", name=" + name + ", steps=" + steps
+//				+ ", deleted=" + deleted + ", ingredients=" + ingredients + ", reviews=" + reviews + ", suggestions="
+//				+ suggestions + "]";
+//	}
 	
 	
 	

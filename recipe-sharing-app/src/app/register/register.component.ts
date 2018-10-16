@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
     if (this.user == null) {
       this.router.navigate(['/register']);
     } else {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']);
     }
   }
 
