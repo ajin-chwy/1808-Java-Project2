@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { PersonalCookbookComponent } from './personal-cookbook/personal-cookbook.component';
 import { HomeComponent } from './home/home.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
     RegisterComponent,
     PersonalCookbookComponent,
     HomeComponent,
-    CreateRecipeComponent
+    CreateRecipeComponent,
+    NavbarComponent
 
   ],
   imports: [
