@@ -28,7 +28,11 @@ export class UserService {
     return this.http.get<User>(this.userUrl + 'status');
   }
 
-  logout(user: User): Observable<User> {
+  setSessionStatus(user: User): Observable<User> {
     return this.http.post<User>(this.userUrl + 'status', user, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
+  }
+
+  logout(): Observable<User> {
+    return this.http.put<User>(this.userUrl + 'status', null);
   }
 }

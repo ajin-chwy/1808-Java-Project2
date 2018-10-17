@@ -19,29 +19,35 @@ export class LoginComponent implements OnInit {
   users: User[];
   ngOnInit() {
     this.userService.getUsers().subscribe(users => this.users = users);
-    // this.checkSess();
+    this.checkSess();
   }
 
   login(): void {
     const tempUser = new User(this.username, this.password, null, null, null, null, false);
     this.userService.verifyUser(tempUser).subscribe(use => {
-      this.router.navigate(['/home']);
+      this.updateUser(use);
     });
   }
 
   updateUser(use: User): void {
-    this.user = use;
+    this.userService.setSessionStatus(use).subscribe(tempUser => {
+      if (tempUser != null) {
+        this.router.navigate(['/home']);
+      } else {
+        this.router.navigate(['/login']);
+      }
+    }, error => this.router.navigate(['/login']));
   }
 
   checkSess(): void {
-    this.userService.getSessionStatus().subscribe(result => this.router.navigate(['/home']));
+    this.userService.getSessionStatus().subscribe(result => this.afterSess(result));
   }
 
   afterSess(user: User): void {
     if (user == null) {
       console.log('Session is empty');
     } else {
-      this.sess = user;
+      this.router.navigate(['/home']);
     }
   }
 
