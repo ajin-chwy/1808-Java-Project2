@@ -17,15 +17,23 @@ export class CreateRecipeComponent implements OnInit {
   owner: User;
   name: string;
   steps: string;
-  // stepList = this.steps.split(',');
+  stepList: string[];
   ingredients: string;
-  // ingredientsList = this.ingredients.split(',');
+  ingredientsList: string[];
   deleted: boolean;
 
   constructor(private recipeService: RecipeService, private userService: UserService,
     private router: Router) { }
 
   ngOnInit() {
+  }
+
+  generateStepsList(): void {
+    this.stepList = this.steps.split(',\n');
+  }
+
+  generateIngredientList(): void {
+    this.ingredientsList = this.ingredients.split(',\n');
   }
 
   updateRecipe(recipe: Recipe): void {
