@@ -29,7 +29,7 @@
   <h1>Sign up to start browsing recipes!</h1>
   <hr>
   <form>
-    <div class="row">
+    <div class="row"> <!-- TOP ROW -->
       <div class="col">
         <label for="fName" class="blockLabel">First Name</label>
         <input [(ngModel)]="fName" type="text" name="fName" id="fName" required>
@@ -39,34 +39,66 @@
         <input [(ngModel)]="lName" type="text" name="lName" id="lName" required>
       </div>
       <div class="col"> 
-          <label for="role" class="blockLabel">Role</label>
+        <label for="role" class="blockLabel" data-toggle="modal" data-target="#roleHelpModal">Role 
+          <button type="button" class="btn" id="roleModalBtn">
+            <i class="far fa-question-circle"></i>
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="roleHelpModal" tabindex="-1" role="dialog" aria-labelledby="roleHelpModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="roleHelpModalTitle">Roles</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Sign up as a <strong>Cook</strong> to create and share recipes!</p>
+                  <p>Sign up as a <strong>Food Critic</strong> to review and share recipes!</p>
+                </div>
+              </div>
+            </div>
+          </div>          
+        </label>
           <select name="role" id="role">
             <option value="Critic">Food Critic</option>
             <option value="Cook">Cook</option>
           </select>
       </div>
     </div>
-      
-      
-      <br>
+    
+    <br>
 
+    <div class="row"> <!-- BOTTOM ROW-->
+      <div class="col">
+        <label for="username" class="blockLabel">Username</label>
+        <input [(ngModel)]="username" type="text" name="username" id="username" required>
+      </div>
+      <div class="col">
+        <label for="password" class="blockLabel">Password</label>
+        <input [(ngModel)]="password" type="password" name="password" id="password" required>
+      </div>
+      <div class="col"> 
+        <label for="address" class="blockLabel">Address</label>
+        <input [(ngModel)]="address" type="text" name="address" id="address">
+      </div>
+    </div>
+    
+    <br>
 
+    <div id="bottomBtns">
+      <button class="btn" (click)="register()">Sign Up</button>
 
-      <label for="username">Username</label>
-      <input [(ngModel)]="username" type="text" name="username" placeholder="username" id="username" required>
-      <br>
-      <label for="password">Password</label>
-      <input [(ngModel)]="password" type="password" name="password" id="password" required>
-      <br>
- 
-      <br>
-      
+      <button class="btn">
+        <a routerLink="../login">Back</a>
+      </button>
+    </div>
+    
+    
+    <br>
 
-      <br>
-      <label for="address">Address</label>
-      <input [(ngModel)]="address" type="text" name="address" id="address">
-      <button class="btn btn-primary" (click)="register()">Submit</button>
-      <a class="btn btn-secondary" routerLink="../login">Back</a>
     </form>
 
 </div>

@@ -16,13 +16,33 @@
 }
 
 .blockLabel{
-    display: block;
+    display: flex;
     text-transform: uppercase;
     font-weight: 600;
     font-size: .85rem;
-   /* text-align: left; */
+   text-align: left; 
 }
 
-#registerFormContainer input{
-    
+#roleModalBtn{
+    background:none;
+    padding: 0;
+    margin: 0;
+}
+
+#registerFormContainer i{
+    padding-left: 5px;
+}
+
+#registerFormContainer input,
+#registerFormContainer select{
+    width: 100%;
+}
+
+#bottomBtns button, 
+#bottomBtns a{
+    margin: 10px;
+    background: #6F876E;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
 }
