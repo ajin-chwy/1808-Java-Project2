@@ -25,7 +25,7 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
