@@ -1,0 +1,13 @@
+
+#registerFormContainer{
+   /* background-color: rgba(227,226,204, .50); */
+    background-color: white;
+    padding-top: 5%;
+    padding: 20x;
+    color: #585155;
+    width: 75%;
+}
+
+#registerFormContainer h1{
+    font-size: 1.5rem;
+}
