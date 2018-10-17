@@ -7,23 +7,6 @@
 
 <div>
 
-  <!-- CAN WE DELETE THIS?
-  <ul>
-    <li *ngFor="let user of users">{{ user.fName }}</li>
-  </ul>
-   -->
-
-   <!--
-  <form>
-    <label for="username">Username</label>
-    <input [(ngModel)]="username" type="text" name="username" placeholder="username" id="username" required>
-    <br>
-    <label for="password">Password</label>
-    <input [(ngModel)]="password" type="password" name="password" id="password" required>
-    <button class="btn btn-primary" (click)="login()">Submit</button>
-  </form>
--->
-
   <p>{{password}} + {{username}}</p>
 
 </div>
@@ -64,7 +47,7 @@
                 <input [(ngModel)]="password" type="password" name="password" placeholder="Password" id="password" required>
               </span>
               <br>
-              <button class="btn" (click)="login()">Login</button>
+              <button class="btn" (click)="login()" data-dismiss="modal">Login</button>
             </form>
         </div>
       </div>

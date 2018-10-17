@@ -38,5 +38,6 @@ public class RecipeController {
 	public void createRecipe(@RequestBody Recipe recipe, HttpSession sess) {
 		System.out.println("in recipePost");
 		System.out.println(recipe);
+		recipeService.createRecipe(recipe);
 	}
 }

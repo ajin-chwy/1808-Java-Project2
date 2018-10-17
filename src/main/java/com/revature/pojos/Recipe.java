@@ -30,6 +30,14 @@ public class Recipe {
 	@Column(name="STEPS")
 	private String steps;
 	
+	@Column(name="INGREDIENTS")
+	private String ingredients;
+	
+
+
+	@Column(name="SCORE")
+	private double score;
+
 	@Column(name="DELETED")
 	private boolean deleted;
 	
@@ -45,23 +53,32 @@ public class Recipe {
 //	@OneToMany(mappedBy="targetRecipe", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 //	private Set<Suggestion> suggestions;
 
+
+
 	public Recipe() {
 		super();
 	}
 
-//	public Recipe(int recipeId, User owner, String name, String steps, boolean deleted, Set<Ingredient> ingredients,
-//			Set<Review> reviews, Set<Suggestion> suggestions) {
-//		super();
-//		this.recipeId = recipeId;
-//		this.owner = owner;
-//		this.name = name;
-//		this.steps = steps;
-//		this.deleted = deleted;
-//		this.ingredients = ingredients;
-//		this.reviews = reviews;
-//		this.suggestions = suggestions;
-//	}
+public Recipe(int recipeId, User owner, String name, String steps, String ingredients, double score,
+			boolean deleted) {
+		super();
+		this.recipeId = recipeId;
+		this.owner = owner;
+		this.name = name;
+		this.steps = steps;
+		this.ingredients = ingredients;
+		this.score = score;
+		this.deleted = deleted;
+	}
 
+	public String getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(String ingredients) {
+		this.ingredients = ingredients;
+	}
+	
 	public int getRecipeId() {
 		return recipeId;
 	}
@@ -102,6 +119,19 @@ public class Recipe {
 		this.deleted = deleted;
 	}
 
+	public double getScore() {
+		return score;
+	}
+
+	public void setScore(double score) {
+		this.score = score;
+	}
+
+	@Override
+	public String toString() {
+		return "Recipe [recipeId=" + recipeId + ", owner=" + owner + ", name=" + name + ", steps=" + steps
+				+ ", ingredients=" + ingredients + ", score=" + score + ", deleted=" + deleted + "]";
+	}
 
 //	public Set<Ingredient> getIngredients() {
 //		return ingredients;
@@ -126,13 +156,7 @@ public class Recipe {
 //	public void setSuggestions(Set<Suggestion> suggestions) {
 //		this.suggestions = suggestions;
 //	}
-//
-//	@Override
-//	public String toString() {
-//		return "Recipe [recipeId=" + recipeId + ", owner=" + owner + ", name=" + name + ", steps=" + steps
-//				+ ", deleted=" + deleted + ", ingredients=" + ingredients + ", reviews=" + reviews + ", suggestions="
-//				+ suggestions + "]";
-//	}
+
 	
 	
 	

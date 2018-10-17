@@ -15,6 +15,7 @@ create table if not exists recipes (
     owner int,
     name text,
     steps text,
+    ingredients text,
     score decimal(3, 2),
     deleted boolean,
     primary key (recipeId),
