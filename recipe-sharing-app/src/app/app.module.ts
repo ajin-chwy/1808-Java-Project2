@@ -7,12 +7,14 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { PersonalCookbookComponent } from './personal-cookbook/personal-cookbook.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PersonalCookbookComponent
   ],
   imports: [
     BrowserModule,
