@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { PersonalCookbookComponent } from './personal-cookbook/personal-cookbook.component';
 import { HomeComponent } from './home/home.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 
@@ -15,8 +16,10 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    PersonalCookbookComponent,
     HomeComponent,
     CreateRecipeComponent
+
   ],
   imports: [
     BrowserModule,
