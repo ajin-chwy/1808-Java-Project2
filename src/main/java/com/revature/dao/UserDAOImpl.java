@@ -27,7 +27,10 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	public void deleteUser(User use) {
-		SessionUtil.getSession().delete(use);
+		curr = SessionUtil.getSession();
+		curr.beginTransaction();
+		curr.delete(use);
+		curr.getTransaction().commit();
 	}
 
 	public void createUser(User use) {
@@ -44,7 +47,10 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	public void updateUser(User use) {
-		SessionUtil.getSession().merge(use);
+		curr = SessionUtil.getSession();
+		curr.beginTransaction();
+		curr.merge(use);
+		curr.getTransaction().commit();
 	}
 
 }

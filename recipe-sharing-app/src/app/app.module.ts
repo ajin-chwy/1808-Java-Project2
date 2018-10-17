@@ -8,13 +8,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { PersonalCookbookComponent } from './personal-cookbook/personal-cookbook.component';
+import { HomeComponent } from './home/home.component';
+import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    PersonalCookbookComponent
+    PersonalCookbookComponent,
+    HomeComponent,
+    CreateRecipeComponent
+
   ],
   imports: [
     BrowserModule,

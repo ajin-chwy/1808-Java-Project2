@@ -24,4 +24,11 @@ export class UserService {
     return this.http.post<User>(this.userUrl + 'register', user, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
   }
 
+  getSessionStatus(): Observable<User> {
+    return this.http.get<User>(this.userUrl + 'status');
+  }
+
+  logout(user: User): Observable<User> {
+    return this.http.post<User>(this.userUrl + 'status', user, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
+  }
 }
