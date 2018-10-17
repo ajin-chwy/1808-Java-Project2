@@ -1,5 +1,6 @@
 package com.revature.pojos;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -9,9 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -53,8 +51,8 @@ public class User {
 //			inverseJoinColumns=@JoinColumn(name="RECIPEID"))
 //	private Set<Recipe> savedRecipes;
 //	
-//	@OneToMany(mappedBy="owner", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-//	private Set<Recipe> ownedRecipes;
+	@OneToMany(mappedBy="owner", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	private Set<Recipe> ownedRecipes = new HashSet<Recipe>();
 
 	public User() {
 		super();
@@ -140,7 +138,8 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", role=" + role
-				+ ", fName=" + fName + ", lName=" + lName + ", address=" + address + ", deleted=" + deleted + "]";
+				+ ", fName=" + fName + ", lName=" + lName + ", address=" + address + ", deleted=" + deleted
+				+ "]";
 	}
 	
 	
@@ -153,13 +152,13 @@ public class User {
 //		this.savedRecipes = savedRecipes;
 //	}
 //
-//	public Set<Recipe> getOwnedRecipes() {
-//		return ownedRecipes;
-//	}
-//
-//	public void setOwnedRecipes(Set<Recipe> ownedRecipes) {
-//		this.ownedRecipes = ownedRecipes;
-//	}
+	public Set<Recipe> getOwnedRecipes() {
+		return ownedRecipes;
+	}
+
+	public void setOwnedRecipes(Set<Recipe> ownedRecipes) {
+		this.ownedRecipes = ownedRecipes;
+	}
 //
 //	@Override
 //	public String toString() {

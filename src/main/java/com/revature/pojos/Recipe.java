@@ -1,19 +1,12 @@
 package com.revature.pojos;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -27,8 +20,8 @@ public class Recipe {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="RECIPEID_SEQ")
 	private int recipeId;
 	
-	@OneToOne
-	@JoinColumn(name="USERID")
+	@ManyToOne
+	@JoinColumn(name="OWNER")
 	private User owner;
 	
 	@Column(name="NAME")
@@ -109,20 +102,6 @@ public class Recipe {
 		this.deleted = deleted;
 	}
 
-	@Override
-	public String toString() {
-		return "Recipe [recipeId=" + recipeId + ", owner=" + owner + ", name=" + name + ", steps=" + steps
-				+ ", deleted=" + deleted + "]";
-	}
-
-	public Recipe(int recipeId, User owner, String name, String steps, boolean deleted) {
-		super();
-		this.recipeId = recipeId;
-		this.owner = owner;
-		this.name = name;
-		this.steps = steps;
-		this.deleted = deleted;
-	}
 
 //	public Set<Ingredient> getIngredients() {
 //		return ingredients;

@@ -1,3 +1,18 @@
-<p>
-  create-recipe works!
-</p>
+<form>
+  <label for="name">Recipe Name</label>
+  <input [(ngModel)]="name" type="text" name="name" id="name" required>
+  <br>
+  <label for="steps">Steps</label>
+  <textarea [(ngModel)]="steps" name="steps" id="steps" required></textarea>
+  <br>
+  <label for="ingredients">Ingredients</label>
+  <textarea [(ngModel)]="ingredients" name="ingredients" id="steps" required></textarea>
+  <br>
+  <button class="btn btn-primary" (click)="createRecipe()">Submit</button>
+  <a class="btn btn-secondary" routerLink="../home">Back</a>
+</form>
+
+<ul>
+  <h6>Steps</h6>
+  <li *ngFor="let s of steps">{{s}}</li>
+</ul>

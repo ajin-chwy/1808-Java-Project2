@@ -29,7 +29,6 @@ public class LoginController {
 	public List<User> loginGetAll(HttpSession sess) {
 		System.out.println("In loginGetAll");
 		List<User> uList = userService.getAllUsers();
-		System.out.println(uList);
 		return uList;
 	}
 	
