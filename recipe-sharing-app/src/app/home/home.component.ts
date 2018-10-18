@@ -37,4 +37,8 @@ export class HomeComponent implements OnInit {
   logout(): void {
     this.userService.logout().subscribe(result => this.router.navigate(['/login']));
   }
+
+  save(recipe: Recipe): void {
+    console.log(recipe);
+  }
 }
