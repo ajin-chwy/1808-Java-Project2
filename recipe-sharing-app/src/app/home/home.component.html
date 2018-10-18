@@ -9,5 +9,18 @@ view all recipe page
 *Edit Recipe
 *Edit User info
 -->
+<div *ngIf="recipes != undefined">
 
+</div>
+
+<div *ngIf="recipes != undefined">
+    <ol>
+        <li *ngFor="let rec of recipes" >
+            <p>{{rec.name}}</p>
+            <p>{{rec.steps}}</p>
+            <p>{{rec.ingredients}}</p>
+            <p>{{rec.score}}</p>
+        </li>
+    </ol>
+</div>
 <button class="btn btn-secondary" (click)="logout()">Logout</button>

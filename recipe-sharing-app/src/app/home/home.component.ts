@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
-
+import { RecipeService } from '../recipe.service';
+import { User } from '../types/user';
+import { Recipe } from '../types/recipe';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,9 +11,27 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router) { }
+  currentUser: User;
+  recipes: Recipe[];
+  constructor(private userService: UserService, private router: Router,
+    private recipeService: RecipeService) { }
 
   ngOnInit() {
+    this.recipeService.getRecipes().subscribe(result => {
+      this.recipes = result;
+    });
+    this.checkSess();
+  }
+
+  checkSess(): void {
+    this.userService.getSessionStatus().subscribe(result => {
+      if (result != null) {
+        this.currentUser = result;
+        console.log('Current Session Owner in Home: ' + this.currentUser );
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
   logout(): void {
