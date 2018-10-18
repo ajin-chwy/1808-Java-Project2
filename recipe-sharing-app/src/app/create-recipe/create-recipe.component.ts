@@ -46,11 +46,7 @@ export class CreateRecipeComponent implements OnInit {
   updateRecipe(recipe: Recipe): void {
     this.recipe = recipe;
     console.log(this.recipe);
-    if (this.recipe == null) {
-      this.router.navigate(['/create-recipe']);
-    } else {
-      this.router.navigate(['/home']);
-    }
+    this.router.navigate(['/home']);
   }
 
   createRecipe(): void {

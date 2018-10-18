@@ -1,3 +1,20 @@
+<!-- Div to create space at the top of the page-->
+<div id="spacer">
+  <p></p>
+</div>
+
+<div class="container rounded shadow-lg" id="recipeCreationFormContainer" >
+  <h1>Complete the form below to add your recipe!</h1>
+  <hr>
+
+  <form>
+    <label class="blockLabel" for="name">Recipe Name</label>
+    <input [(ngModel)]="name" type="text" name="name" id="name" required>
+    <br>
+
+  </form>
+</div>
+
 <form>
   <label for="name">Recipe Name</label>
   <input [(ngModel)]="name" type="text" name="name" id="name" required>
@@ -19,3 +36,5 @@
   <h6>Ingredients</h6>
   <li *ngFor="let i of ingredientsList">{{i}}</li>
 </ol>
+
+

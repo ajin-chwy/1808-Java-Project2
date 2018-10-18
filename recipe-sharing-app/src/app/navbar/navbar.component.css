@@ -8,6 +8,8 @@ nav .navbar-brand{
     text-transform: uppercase;
 }
 
-nav .navbar-link{
-    
+nav .nav-link{
+    color: #EDF0E9;
+    text-transform: uppercase;
+    text-decoration: none;
 }
