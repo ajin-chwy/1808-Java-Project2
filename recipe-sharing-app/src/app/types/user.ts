@@ -1,3 +1,5 @@
+import { Recipe } from './recipe';
+
 export class User {
     userId: number;
     username: string;
@@ -7,6 +9,8 @@ export class User {
     lName: string;
     address: string;
     deleted: boolean;
+    ownedRecipes: Recipe[];
+    savedRecipes: Recipe[];
 
     constructor(username: string, password: string, role: string, fName: string, lName: string, address: string, deleted: boolean) {
         this.username = username;

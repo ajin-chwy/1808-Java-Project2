@@ -54,8 +54,8 @@ public class User {
 			inverseJoinColumns=@JoinColumn(name="RECIPEID"))
 	private Set<Recipe> savedRecipes;
 	
-	@OneToMany(mappedBy="owner", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	private Set<Recipe> ownedRecipes = new HashSet<Recipe>();
+//	@OneToMany(mappedBy="owner", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+//	private Set<Recipe> ownedRecipes = new HashSet<Recipe>();
 
 	public User() {
 		super();
@@ -163,13 +163,13 @@ public class User {
 		this.savedRecipes = savedRecipes;
 	}
 
-	public Set<Recipe> getOwnedRecipes() {
-		return ownedRecipes;
-	}
-
-	public void setOwnedRecipes(Set<Recipe> ownedRecipes) {
-		this.ownedRecipes = ownedRecipes;
-	}
+//	public Set<Recipe> getOwnedRecipes() {
+//		return ownedRecipes;
+//	}
+//
+//	public void setOwnedRecipes(Set<Recipe> ownedRecipes) {
+//		this.ownedRecipes = ownedRecipes;
+//	}
 
 	
 	

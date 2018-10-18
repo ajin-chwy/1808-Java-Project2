@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Recipe } from './types/recipe';
+import { User } from './types/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -19,4 +20,6 @@ export class RecipeService {
   createRecipe(recipe: Recipe): Observable<Recipe> {
     return this.http.post<Recipe>(this.url + 'recipe', recipe, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
   }
+
+  addSavedRecipe(recipe: Recipe, user: User)
 }
