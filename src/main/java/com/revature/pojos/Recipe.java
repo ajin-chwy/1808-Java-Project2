@@ -33,8 +33,6 @@ public class Recipe {
 	@Column(name="INGREDIENTS")
 	private String ingredients;
 	
-
-
 	@Column(name="SCORE")
 	private double score;
 

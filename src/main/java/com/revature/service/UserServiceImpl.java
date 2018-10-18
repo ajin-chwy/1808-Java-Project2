@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.UserDAO;
+import com.revature.pojos.Recipe;
 import com.revature.pojos.User;
 
 @Service
@@ -25,6 +26,18 @@ public class UserServiceImpl implements UserService{
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public void addSavedRecipe(User use, Recipe rec) {
+		use.addSavedRecipe(rec);
+		userDao.updateUser(use);
+	}
+
+	@Override
+	public void removeSavedRecipe(User use, Recipe rec) {
+		use.removeSavedRecipe(rec);
+		userDao.updateUser(use);
 	}
 
 	@Override

@@ -10,6 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -45,12 +48,12 @@ public class User {
 	@Column(name="DELETED")
 	private boolean deleted;
 	
-//	@ManyToMany(fetch=FetchType.LAZY)
-//	@JoinTable(name="SAVEDRECIPES",
-//			joinColumns=@JoinColumn(name="USERID"),
-//			inverseJoinColumns=@JoinColumn(name="RECIPEID"))
-//	private Set<Recipe> savedRecipes;
-//	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(name="SAVEDRECIPES",
+			joinColumns=@JoinColumn(name="USERID"),
+			inverseJoinColumns=@JoinColumn(name="RECIPEID"))
+	private Set<Recipe> savedRecipes;
+	
 	@OneToMany(mappedBy="owner", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private Set<Recipe> ownedRecipes = new HashSet<Recipe>();
 
@@ -58,6 +61,14 @@ public class User {
 		super();
 	}
 
+	public void addSavedRecipe(Recipe rec) {
+		this.savedRecipes.add(rec);
+	}
+	
+	public void removeSavedRecipe(Recipe rec) {
+		this.savedRecipes.remove(rec);
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -144,14 +155,14 @@ public class User {
 	
 	
 
-//	public Set<Recipe> getSavedRecipes() {
-//		return savedRecipes;
-//	}
-//
-//	public void setSavedRecipes(Set<Recipe> savedRecipes) {
-//		this.savedRecipes = savedRecipes;
-//	}
-//
+	public Set<Recipe> getSavedRecipes() {
+		return savedRecipes;
+	}
+
+	public void setSavedRecipes(Set<Recipe> savedRecipes) {
+		this.savedRecipes = savedRecipes;
+	}
+
 	public Set<Recipe> getOwnedRecipes() {
 		return ownedRecipes;
 	}
@@ -159,13 +170,7 @@ public class User {
 	public void setOwnedRecipes(Set<Recipe> ownedRecipes) {
 		this.ownedRecipes = ownedRecipes;
 	}
-//
-//	@Override
-//	public String toString() {
-//		return "User [userId=" + userId + ", role=" + role + ", fName=" + fName + ", lName=" + lName + ", address="
-//				+ address + ", deleted=" + deleted + ", savedRecipes=" + savedRecipes + ", ownedRecipes=" + ownedRecipes
-//				+ "]";
-//	}
+
 	
 	
 }
