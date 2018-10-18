@@ -21,16 +21,31 @@ export class RegisterComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
+    this.checkSess();
   }
 
-  updateUser(user: User): void {
-    this.user = user;
-    console.log(this.user);
-    if (this.user == null) {
-      this.router.navigate(['/register']);
+  checkSess(): void {
+    this.userService.getSessionStatus().subscribe( result => {
+      this.afterSess(result);
+    });
+  }
+
+  afterSess(user: User): void {
+    if (user == null) {
+      console.log('Session is empty');
     } else {
       this.router.navigate(['/home']);
     }
+  }
+
+  updateUser(user: User): void {
+    this.userService.setSessionStatus(user).subscribe(result => {
+      if (result != null) {
+        this.router.navigate(['/home']);
+      } else {
+        this.router.navigate(['/register']);
+      }
+    });
   }
 
   register(): void {
