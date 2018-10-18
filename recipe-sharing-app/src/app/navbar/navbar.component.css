@@ -1,5 +1,6 @@
 nav{
     background-color:#6F876E;
+    cursor: pointer;
 }
 
 nav .navbar-brand{
