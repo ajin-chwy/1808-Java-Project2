@@ -1,5 +1,6 @@
 package com.revature.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.revature.dao.RecipeDAO;
 import com.revature.pojos.Recipe;
+import com.revature.pojos.User;
 
 @Service
 public class RecipeServiceImpl implements RecipeService {
@@ -17,6 +19,24 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	public void createRecipe(Recipe recipe) {
 		recipeDao.createRecipe(recipe);
+	}
+
+	@Override
+	public List<Recipe> getOwnedRecipes(User user) {
+		List<Recipe> rList= recipeDao.getAllRecipe();
+		List<Recipe> result = new ArrayList<Recipe>();
+		for(Recipe r: rList) {
+			if(r.getOwner().getUserId() == user.getUserId()) {
+				result.add(r);
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public List<Recipe> getSavedRecipes(User user) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override

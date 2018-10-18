@@ -3,6 +3,7 @@ package com.revature.service;
 import java.util.List;
 
 import com.revature.pojos.Recipe;
+import com.revature.pojos.User;
 
 public interface RecipeService {
 	
@@ -11,4 +12,8 @@ public interface RecipeService {
 	public List<Recipe> getAllRecipes();
 	
 	public Recipe getRecipe(int id);
+	
+	public List<Recipe> getOwnedRecipes(User user);
+	
+	public List<Recipe> getSavedRecipes(User user);
 }

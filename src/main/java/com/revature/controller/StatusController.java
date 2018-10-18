@@ -1,15 +1,20 @@
 package com.revature.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.pojos.Recipe;
 import com.revature.pojos.User;
+import com.revature.service.RecipeService;
 import com.revature.service.UserService;
 
 @RestController
@@ -21,10 +26,17 @@ public class StatusController {
 	private User user = null;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private RecipeService recipeService;
 	
 	@GetMapping(produces="application/json")
 	public User getCurrUser() {
 		return this.user;
+	}
+	
+	@GetMapping(value="/{id}", produces="application/json")
+	public List<Recipe> getOwnedRecipes(@PathVariable("id") Integer id) {
+		return recipeService.getOwnedRecipes(userService.getUser(id));
 	}
 	
 	@PostMapping(produces="application/json", consumes={"application/json"})

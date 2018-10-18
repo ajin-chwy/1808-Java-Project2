@@ -18,4 +18,5 @@ public interface UserService {
 	public void addSavedRecipe(User use, Recipe rec);
 	
 	public void removeSavedRecipe(User use, Recipe rec);
+	
 }
