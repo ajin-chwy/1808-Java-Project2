@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  private userUrl = 'http://Localhost:8081/RecipeSharingApplication/';
+  private userUrl = 'http://10.41.27.189:8081/RecipeSharingApplication/';
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.userUrl + 'login');

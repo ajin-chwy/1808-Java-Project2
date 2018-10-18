@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class RecipeService {
 
-  private url = 'http://Localhost:8081/RecipeSharingApplication/';
+  private url = 'http://10.41.27.189:8081/RecipeSharingApplication/';
 
   constructor(private http: HttpClient) { }
 
