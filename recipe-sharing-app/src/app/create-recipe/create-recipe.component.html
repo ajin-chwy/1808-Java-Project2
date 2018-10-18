@@ -8,23 +8,63 @@
   <hr>
 
   <form>
-    <label class="blockLabel" for="name">Recipe Name</label>
-    <input [(ngModel)]="name" type="text" name="name" id="name" required>
-    <br>
+    <div class="row">
+      <div class="col">
+         <label class="blockLabel" for="name">Recipe Name</label>
+         <input [(ngModel)]="name" type="text" name="name" id="name" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label class="blockLabel" for="steps" data-toggle="modal" data-target="#formatHelpModal">Steps
+        <button type="button" class="btn" id="roleModalBtn">
+            <i class="far fa-question-circle"></i>
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="formatHelpModal" tabindex="-1" role="dialog" aria-labelledby="formatHelpModalTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="formatHelpModalTitle">Roles</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>To format your steps and ingredients, separate each line with a comma (,) and new line.
+                      Example:
+                      Cherries,
+                      Apples,
+                      Bananas
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </label>
+
+
+        <textarea [(ngModel)]="steps" (change)="generateStepsList()" name="steps" id="steps" required></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label class="blockLabel" for="ingredients">Ingredients</label>
+        <textarea [(ngModel)]="ingredients" (change)="generateIngredientList()" name="ingredients" id="steps" required></textarea>
+      </div>
+    </div>
+    <div id="bottomBtns">
+      <button class="btn btn-primary" (click)="createRecipe()">Submit</button>
+      <a class="btn btn-secondary" routerLink="../home">Back</a>
+    </div>
+
 
   </form>
 </div>
 
 <form>
-  <label for="name">Recipe Name</label>
-  <input [(ngModel)]="name" type="text" name="name" id="name" required>
-  <br>
-  <label for="steps">Steps</label>
-  <textarea [(ngModel)]="steps" (change)="generateStepsList()" name="steps" id="steps" required></textarea>
-  <br>
-  <label for="ingredients">Ingredients</label>
-  <textarea [(ngModel)]="ingredients" (change)="generateIngredientList()" name="ingredients" id="steps" required></textarea>
-  <br>
+
   <button class="btn btn-primary" (click)="createRecipe()">Submit</button>
   <a class="btn btn-secondary" routerLink="../home">Back</a>
 </form>

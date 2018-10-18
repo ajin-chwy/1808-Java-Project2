@@ -21,5 +21,5 @@ export class RecipeService {
     return this.http.post<Recipe>(this.url + 'recipe', recipe, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
   }
 
-  addSavedRecipe(recipe: Recipe, user: User)
+  //addSavedRecipe(recipe: Recipe, user: User)
 }
