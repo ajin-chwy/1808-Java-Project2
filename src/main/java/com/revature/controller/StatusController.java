@@ -31,6 +31,7 @@ public class StatusController {
 	
 	@GetMapping(produces="application/json")
 	public User getCurrUser() {
+		this.user = userService.validateUser(this.user);
 		return this.user;
 	}
 	

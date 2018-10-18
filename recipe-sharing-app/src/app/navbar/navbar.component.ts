@@ -23,5 +23,6 @@ export class NavbarComponent implements OnInit {
 
   logout(): void {
     this.userService.logout().subscribe(result => this.currentUser = null);
+    window.location.reload();
   }
 }

@@ -50,7 +50,7 @@ export class CreateRecipeComponent implements OnInit {
   }
 
   createRecipe(): void {
-    this.recipeService.createRecipe(new Recipe(this.owner,
+    this.recipeService.createRecipe(new Recipe(0, this.owner,
       this.name, this.steps, this.ingredients, this.deleted, 5)).subscribe(result => this.updateRecipe(result));
   }
 }

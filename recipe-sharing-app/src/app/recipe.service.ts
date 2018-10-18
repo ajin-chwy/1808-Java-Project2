@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class RecipeService {
 
-  private url = 'http://10.41.27.189:8081/RecipeSharingApplication/';
+  private url = 'http://localhost:8081/RecipeSharingApplication/';
 
   constructor(private http: HttpClient) { }
 
@@ -21,14 +21,17 @@ export class RecipeService {
     return this.http.post<Recipe>(this.url + 'recipe', recipe, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
   }
 
+  getOwnedRecipes(user: User): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(this.url + 'status/' + user.userId);
+  }
 
   addSavedRecipe(recipe: Recipe, user: User): Observable<User> {
-    return this.http.post<User>(this.url + 'recipe' + user.userId, recipe,
+    return this.http.post<User>(this.url + 'recipe/' + user.userId, recipe,
     {headers: new HttpHeaders({'Content-Type': 'application/json'})});
   }
 
   removeSavedRecipe(recipe: Recipe, user: User): Observable<User> {
-    return this.http.put<User>(this.url + 'recipe' + user.userId, recipe,
+    return this.http.put<User>(this.url + 'recipe/' + user.userId, recipe,
     {headers: new HttpHeaders({'Content-Type': 'application/json'})});
   }
 

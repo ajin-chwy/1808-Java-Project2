@@ -36,6 +36,7 @@ public class LoginController {
 	public User loginGet (HttpSession sess, @PathVariable(value="id") Integer id) {
 		System.out.println("In loginGet");
 		System.out.println(id);
+		System.out.println(userService.getUser(id).getSavedRecipes());
 		return userService.getUser(id);
 	}
 	

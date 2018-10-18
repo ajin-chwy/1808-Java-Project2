@@ -9,7 +9,8 @@ export class Recipe {
     deleted: boolean;
     score: number;
 
-    constructor(owner: User, name: string, steps: string, ingredients: string, deleted: boolean, score: number) {
+    constructor(recipeId: number, owner: User, name: string, steps: string, ingredients: string, deleted: boolean, score: number) {
+        this.recipeId = recipeId;
         this.owner = owner;
         this.name = name;
         this.steps = steps;

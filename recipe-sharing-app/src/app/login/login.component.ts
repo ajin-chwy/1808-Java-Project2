@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    const tempUser = new User(this.username, this.password, null, null, null, null, false);
+    const tempUser = new User(this.username, this.password, null, null, null, null, false, null);
     this.userService.verifyUser(tempUser).subscribe(use => {
       this.updateUser(use);
     });
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     this.userService.setSessionStatus(use).subscribe(tempUser => {
       if (tempUser != null) {
         this.router.navigate(['/home']);
+        window.location.reload();
       } else {
         this.router.navigate(['/login']);
       }

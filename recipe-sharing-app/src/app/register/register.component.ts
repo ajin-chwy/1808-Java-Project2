@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register(): void {
-    const tempUser = new User(this.username, this.password, this.role, this.fName, this.lName, this.address, false);
+    const tempUser = new User(this.username, this.password, this.role, this.fName, this.lName, this.address, false, null);
     this.userService.registerUser(tempUser).subscribe(use => {
       this.updateUser(use);
     });

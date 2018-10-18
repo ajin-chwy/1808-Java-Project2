@@ -12,7 +12,9 @@ export class User {
     ownedRecipes: Recipe[];
     savedRecipes: Recipe[];
 
-    constructor(username: string, password: string, role: string, fName: string, lName: string, address: string, deleted: boolean) {
+    constructor(username: string, password: string, role: string
+        , fName: string, lName: string, address: string,
+        deleted: boolean, savedRecipes: Recipe[]) {
         this.username = username;
         this.password = password;
         this.role = role;
@@ -20,5 +22,6 @@ export class User {
         this.lName = lName;
         this.address = address;
         this.deleted = deleted;
+        this.savedRecipes = savedRecipes;
     }
 }

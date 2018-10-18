@@ -66,7 +66,11 @@ public class User {
 	}
 	
 	public void removeSavedRecipe(Recipe rec) {
-		this.savedRecipes.remove(rec);
+		for (Recipe r: this.savedRecipes) {
+			if(r.getRecipeId() == rec.getRecipeId()) {
+				this.savedRecipes.remove(r);
+			}
+		}
 	}
 	
 	public String getUsername() {

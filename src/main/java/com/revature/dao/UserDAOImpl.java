@@ -12,22 +12,20 @@ import com.revature.util.SessionUtil;
 @Service
 public class UserDAOImpl implements UserDAO{
 
-	private Session curr;
+	private static Session curr = SessionUtil.getSession();
 	
 	public User getUser(int id) {
-		curr = SessionUtil.getSession();
-		return curr.get(User.class, id);
+		User use = curr.get(User.class, id);
+		return use;
 	}
 
 	public List<User> getAllUser() {
 		List<User> uList = new ArrayList<User>();
-		curr = SessionUtil.getSession();
 		uList = curr.createCriteria(User.class).list();
 		return uList;
 	}
 
 	public void deleteUser(User use) {
-		curr = SessionUtil.getSession();
 		curr.beginTransaction();
 		curr.delete(use);
 		curr.getTransaction().commit();
@@ -39,7 +37,6 @@ public class UserDAOImpl implements UserDAO{
 		} else {
 			System.out.println("use is not null");
 		}
-		curr = SessionUtil.getSession();
 		curr.beginTransaction();
 		curr.saveOrUpdate(use);
 		curr.getTransaction().commit();
@@ -47,7 +44,6 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	public void updateUser(User use) {
-		curr = SessionUtil.getSession();
 		curr.beginTransaction();
 		curr.merge(use);
 		curr.getTransaction().commit();

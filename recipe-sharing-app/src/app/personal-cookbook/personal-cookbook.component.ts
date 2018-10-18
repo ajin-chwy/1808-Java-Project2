@@ -33,5 +33,19 @@ export class PersonalCookbookComponent implements OnInit {
     this.savedRecipes = user.savedRecipes;
   }
 
+  save(recipe: Recipe): void {
+    console.log(recipe);
+    this.recipeService.removeSavedRecipe(recipe, this.user).subscribe(result => {
+      this.updateUser();
+    });
+  }
+
+  updateUser(): void {
+    this.userService.getSessionStatus().subscribe(result => {
+      this.user = result;
+    });
+    this.router.navigateByUrl('/home', { skipLocationChange: true})
+    .then(() => this.router.navigate(['/cookbook']));
+  }
 
 }

@@ -49,14 +49,14 @@ public class RecipeController {
 	@RequestMapping(value="/recipe/{id}", method=RequestMethod.POST, produces="application/json", consumes= {"application/json"})
 	public User addSavedRecipe(@PathVariable(value="id") Integer id, @RequestBody Recipe recipe) {
 		User authUser = userService.getUser(id);
-		userService.addSavedRecipe(authUser, recipe);
+		userService.addSavedRecipe(authUser, recipeService.getRecipe(recipe.getRecipeId()));
 		return authUser;
 	}
 	
 	@RequestMapping(value="/recipe/{id}", method=RequestMethod.PUT, produces="application/json", consumes= {"application/json"})
 	public User removeSavedRecipe(@PathVariable(value="id") Integer id, @RequestBody Recipe recipe) {
 		User authUser = userService.getUser(id);
-		userService.removeSavedRecipe(authUser, recipe);
+		userService.removeSavedRecipe(authUser, recipeService.getRecipe(recipe.getRecipeId()));
 		return authUser;
 	}
 }
