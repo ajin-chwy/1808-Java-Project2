@@ -26,6 +26,13 @@ export class CreateRecipeComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.userService.getSessionStatus().subscribe(result => {
+      if (result != null) {
+        this.owner = result;
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
   generateStepsList(): void {
@@ -47,7 +54,7 @@ export class CreateRecipeComponent implements OnInit {
   }
 
   createRecipe(): void {
-    this.recipeService.createRecipe(new Recipe(null,
+    this.recipeService.createRecipe(new Recipe(this.owner,
       this.name, this.steps, this.ingredients, this.deleted, 5)).subscribe(result => this.updateRecipe(result));
   }
 }
