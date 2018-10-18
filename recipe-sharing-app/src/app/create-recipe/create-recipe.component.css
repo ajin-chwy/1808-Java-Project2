@@ -1,0 +1,23 @@
+#spacer{
+    padding-top: 20px;
+}
+
+#recipeCreationFormContainer{
+    background-color: white;
+    padding-top: 10px;
+    color: #585155;
+    width: 65%;
+}
+
+#recipeCreationFormContainer h1{
+    font-size: 1.5rem;
+    padding: 10px 0;
+}
+
+.blockLabel{
+    display: flex;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: .85rem;
+   text-align: left; 
+}

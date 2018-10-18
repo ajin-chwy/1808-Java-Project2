@@ -1,32 +1,4 @@
-<h1 *ngIf="currentUser != undefined">Welcome {{ currentUser.fName }} {{ currentUser.lName }}</h1>
-
-<a class="btn" routerLink="../create-recipe">Create Recipe</a>
-
-<!-- edit info
-create recipe page
-view all recipe page
-
-*Edit Recipe
-*Edit User info
--->
-
-<!--
-<div *ngIf="recipes != undefined">
-
-</div>
-
-<div *ngIf="recipes != undefined">
-    <ol>
-        <li *ngFor="let rec of recipes" >
-            <p>{{rec.name}}</p>
-            <p>{{rec.steps}}</p>
-            <p>{{rec.ingredients}}</p>
-            <p>{{rec.score}}</p>
-        </li>
-    </ol>
-</div>
-<button class="btn btn-secondary" (click)="logout()">Logout</button>
--->
+<h1 class="pt-3" *ngIf="currentUser != undefined">Welcome {{ currentUser.fName }} {{ currentUser.lName }}</h1>
 
 <div *ngIf="recipes != undefined">
     <div class="card recipes" style="width: 20rem;" *ngFor="let rec of recipes">
@@ -41,6 +13,6 @@ view all recipe page
             <p><strong>Steps: </strong></p>
             <p>{{ rec.steps }}</p>
         </div>
-        <button (click)="save(rec)">Save</button>
+        <button class="btn" (click)="save(rec)">Save</button>
     </div>
 </div>

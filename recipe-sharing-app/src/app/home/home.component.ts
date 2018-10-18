@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
     this.userService.getSessionStatus().subscribe(result => {
       if (result != null) {
         this.currentUser = result;
-        console.log('Current Session Owner in Home: ' + this.currentUser );
+        console.log(this.currentUser);
       } else {
         this.router.navigate(['/login']);
       }
