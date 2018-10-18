@@ -50,3 +50,7 @@ form{
 #registerFormContainer i{
     padding-left: 5px;
 }
+
+.modal-body{
+    text-transform: none;
+}

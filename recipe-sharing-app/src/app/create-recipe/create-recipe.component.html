@@ -26,16 +26,16 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="formatHelpModalTitle">Roles</h5>
+                    <h5 class="modal-title" id="formatHelpModalTitle">Formatting</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    <p>To format your steps and ingredients, separate each line with a comma (,) and new line.
-                      Example:
-                      Cherries,
-                      Apples,
+                    <p>To format your steps and ingredients, separate each line with a comma (,) and new line. <br>
+                      Example: <br>
+                      Cherries, <br>
+                      Apples, <br>
                       Bananas
                     </p>
                   </div>
@@ -43,14 +43,16 @@
               </div>
             </div>
         </label>
-
-
         <textarea [(ngModel)]="steps" (change)="generateStepsList()" name="steps" id="steps" required></textarea>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <label class="blockLabel" for="ingredients">Ingredients</label>
+        <label class="blockLabel" for="ingredients"  data-toggle="modal" data-target="#formatHelpModal">ingredients
+          <button type="button" class="btn" id="roleModalBtn">
+            <i class="far fa-question-circle"></i>
+          </button>
+        </label>
         <textarea [(ngModel)]="ingredients" (change)="generateIngredientList()" name="ingredients" id="steps" required></textarea>
       </div>
     </div>
@@ -63,11 +65,6 @@
   </form>
 </div>
 
-<form>
-
-  <button class="btn btn-primary" (click)="createRecipe()">Submit</button>
-  <a class="btn btn-secondary" routerLink="../home">Back</a>
-</form>
 <ol *ngIf="steps != undefined">
   <h6>Steps</h6>
   <li *ngFor="let s of stepList">{{s}}</li>
