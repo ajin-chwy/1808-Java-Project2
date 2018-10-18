@@ -39,6 +39,9 @@ export class HomeComponent implements OnInit {
   }
 
   save(recipe: Recipe): void {
+    this.recipeService.addSavedRecipe(recipe, this.currentUser).subscribe(result => {
+      this.currentUser = result;
+    });
     console.log(recipe);
   }
 }

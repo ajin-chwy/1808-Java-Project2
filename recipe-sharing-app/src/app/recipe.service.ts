@@ -21,5 +21,13 @@ export class RecipeService {
     return this.http.post<Recipe>(this.url + 'recipe', recipe, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
   }
 
-  addSavedRecipe(recipe: Recipe, user: User)
+  addSavedRecipe(recipe: Recipe, user: User): Observable<User> {
+    return this.http.post<User>(this.url + 'recipe' + user.userId, recipe,
+    {headers: new HttpHeaders({'Content-Type': 'application/json'})});
+  }
+
+  removeSavedRecipe(recipe: Recipe, user: User): Observable<User> {
+    return this.http.put<User>(this.url + 'recipe' + user.userId, recipe,
+    {headers: new HttpHeaders({'Content-Type': 'application/json'})});
+  }
 }
