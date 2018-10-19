@@ -26,17 +26,20 @@ public class RecipeServiceImpl implements RecipeService {
 		List<Recipe> rList= recipeDao.getAllRecipe();
 		List<Recipe> result = new ArrayList<Recipe>();
 		for(Recipe r: rList) {
-			if(r.getOwner().getUserId() == user.getUserId()) {
-				result.add(r);
+			try {
+				if(r.getOwner().getUserId() == user.getUserId()) {
+					result.add(r);
+				}
+			} catch (Exception e) {
+				
 			}
 		}
 		return result;
 	}
 
 	@Override
-	public List<Recipe> getSavedRecipes(User user) {
-		// TODO Auto-generated method stub
-		return null;
+	public void hideRecipe(Recipe recipe) {
+		recipeDao.updateRecipe(recipe);
 	}
 
 	@Override

@@ -35,4 +35,8 @@ export class RecipeService {
     {headers: new HttpHeaders({'Content-Type': 'application/json'})});
   }
 
+  hideRecipe(recipe: Recipe): Observable<Recipe> {
+    return this.http.delete<Recipe>(this.url + 'recipe/' + recipe.recipeId);
+  }
+
 }

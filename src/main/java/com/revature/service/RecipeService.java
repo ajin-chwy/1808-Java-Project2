@@ -14,6 +14,6 @@ public interface RecipeService {
 	public Recipe getRecipe(int id);
 	
 	public List<Recipe> getOwnedRecipes(User user);
-	
-	public List<Recipe> getSavedRecipes(User user);
+
+	public void hideRecipe(Recipe recipe);
 }

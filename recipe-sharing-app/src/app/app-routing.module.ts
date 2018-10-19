@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { PersonalCookbookComponent } from './personal-cookbook/personal-cookbook.component';
+import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'home', component: HomeComponent},
   {path: 'create-recipe', component: CreateRecipeComponent},
-  {path: 'cookbook', component: PersonalCookbookComponent}
+  {path: 'cookbook', component: PersonalCookbookComponent},
+  {path: 'my-recipes', component: MyRecipesComponent}
 ];
 
 @NgModule({

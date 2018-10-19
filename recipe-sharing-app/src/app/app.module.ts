@@ -11,6 +11,8 @@ import { PersonalCookbookComponent } from './personal-cookbook/personal-cookbook
 import { HomeComponent } from './home/home.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MyRecipesComponent } from './my-recipes/my-recipes.component';
+import { OnlyVisibleRecipesPipe } from './only-visible-recipes.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     PersonalCookbookComponent,
     HomeComponent,
     CreateRecipeComponent,
-    NavbarComponent
+    NavbarComponent,
+    MyRecipesComponent,
+    OnlyVisibleRecipesPipe
 
   ],
   imports: [

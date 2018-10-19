@@ -37,6 +37,8 @@ public class StatusController {
 	
 	@GetMapping(value="/{id}", produces="application/json")
 	public List<Recipe> getOwnedRecipes(@PathVariable("id") Integer id) {
+		System.out.println("getting owned recipes with id: " + id);
+		System.out.println(userService.getUser(id));
 		return recipeService.getOwnedRecipes(userService.getUser(id));
 	}
 	

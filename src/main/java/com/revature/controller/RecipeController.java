@@ -59,4 +59,16 @@ public class RecipeController {
 		userService.removeSavedRecipe(authUser, recipeService.getRecipe(recipe.getRecipeId()));
 		return authUser;
 	}
+	
+	@RequestMapping(value="/recipe/{id}", method=RequestMethod.DELETE)
+	public void hideRecipe(@PathVariable(value="id") Integer id) {
+		Recipe recipe = recipeService.getRecipe(id);
+		if(recipe.isDeleted() == false) {
+			recipe.setDeleted(true);
+		} else {
+			recipe.setDeleted(false);
+		}
+		recipeService.hideRecipe(recipe);
+	}
+	
 }

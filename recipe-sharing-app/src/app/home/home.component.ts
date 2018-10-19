@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RecipeService } from '../recipe.service';
 import { User } from '../types/user';
 import { Recipe } from '../types/recipe';
+import { OnlyVisibleRecipesPipe } from '../only-visible-recipes.pipe';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,7 +14,8 @@ export class HomeComponent implements OnInit {
 
   currentUser: User;
   recipes: Recipe[];
-  constructor(private userService: UserService, private router: Router,
+  constructor(private userService: UserService,
+    private router: Router,
     private recipeService: RecipeService) { }
 
   ngOnInit() {
