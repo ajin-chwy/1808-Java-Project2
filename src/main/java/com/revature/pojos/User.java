@@ -52,7 +52,7 @@ public class User {
 	@JoinTable(name="SAVEDRECIPES",
 			joinColumns=@JoinColumn(name="USERID"),
 			inverseJoinColumns=@JoinColumn(name="RECIPEID"))
-	private Set<Recipe> savedRecipes;
+	private Set<Recipe> savedRecipes = new HashSet<Recipe>();
 	
 //	@OneToMany(mappedBy="owner", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 //	private Set<Recipe> ownedRecipes = new HashSet<Recipe>();

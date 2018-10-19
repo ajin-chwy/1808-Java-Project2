@@ -4,6 +4,8 @@ import { Recipe } from '../types/recipe';
 import { UserService } from '../user.service';
 import { RecipeService } from '../recipe.service';
 import { Router } from '@angular/router';
+import { OnlyVisibleRecipesPipe } from '../only-visible-recipes.pipe';
+
 @Component({
   selector: 'app-personal-cookbook',
   templateUrl: './personal-cookbook.component.html',

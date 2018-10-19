@@ -1,5 +1,5 @@
 create table if not exists users (
-    userId int,
+    userId serial,
     username text,
     password text,
     role text,
@@ -11,7 +11,7 @@ create table if not exists users (
 );
 
 create table if not exists recipes (
-    recipeId int,
+    recipeId serial,
     owner int,
     name text,
     steps text,

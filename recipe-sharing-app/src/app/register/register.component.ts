@@ -42,6 +42,7 @@ export class RegisterComponent implements OnInit {
     this.userService.setSessionStatus(user).subscribe(result => {
       if (result != null) {
         this.router.navigate(['/home']);
+        window.location.reload();
       } else {
         this.router.navigate(['/register']);
       }

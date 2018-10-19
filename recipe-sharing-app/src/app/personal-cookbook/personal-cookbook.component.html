@@ -1,5 +1,5 @@
 <div *ngIf="savedRecipes != undefined">
-  <div class="card recipes" style="width: 20rem;" *ngFor="let rec of savedRecipes">
+  <div class="card recipes" style="width: 20rem;" *ngFor="let rec of savedRecipes | onlyVisibleRecipes: true">
       <div class="card-body">
           <h5 class="card-title">{{ rec.name }}</h5>
           <br>

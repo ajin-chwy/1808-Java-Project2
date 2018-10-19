@@ -14,6 +14,8 @@ public class UserServiceImpl implements UserService{
 
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
+	private RecipeService recipeService;
 	
 	@Override
 	public User validateUser(User user) {
@@ -30,7 +32,8 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void addSavedRecipe(User use, Recipe rec) {
-		use.addSavedRecipe(rec);
+		use.addSavedRecipe(recipeService.getRecipe(rec.getRecipeId()));
+		System.out.println("adding savedRecipe: " + rec);
 		userDao.updateUser(use);
 	}
 

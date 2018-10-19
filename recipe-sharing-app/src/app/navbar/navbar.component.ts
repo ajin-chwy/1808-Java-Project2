@@ -9,12 +9,16 @@ import { User } from '../types/user';
 export class NavbarComponent implements OnInit {
 
   currentUser: User;
+  role: string;
   constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.userService.getSessionStatus().subscribe(result => {
       if (result != null ) {
         this.currentUser = result;
+        this.role = result.role;
+        console.log(result);
+        console.log(result.role);
       } else {
         this.currentUser = null;
       }

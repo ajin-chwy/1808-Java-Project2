@@ -5,6 +5,7 @@
         <div class="card-body" >
             <h5 class="card-title">{{ rec.name }}</h5>
             <br>
+            <h6 class="card-subtitle">Owner: {{rec.owner.fName}} {{rec.owner.lName}}</h6>
             <h6 class="card-subtitle">Recipe Score: {{ rec.score }}</h6>
             <br>
             <h6 class="card-subtitle">Items Required: </h6>
@@ -12,7 +13,7 @@
             <br>
             <p><strong>Steps: </strong></p>
             <p>{{ rec.steps }}</p>
-            <button class="btn" (click)="save(rec)">Save</button>
+            <button *ngIf="currentUser != null && currentUser.role != 'Cook'" class="btn" (click)="save(rec)">Save</button>
         </div>
     </div>
 </div>
