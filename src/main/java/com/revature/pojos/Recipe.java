@@ -16,8 +16,7 @@ public class Recipe {
 
 	@Id
 	@Column(name="RECIPEID")
-	@SequenceGenerator(name="RECIPEID_SEQ", sequenceName="RECIPEID_SEQ")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="RECIPEID_SEQ")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int recipeId;
 	
 	@ManyToOne

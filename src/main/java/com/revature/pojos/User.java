@@ -23,8 +23,7 @@ public class User {
 	
 	@Id
 	@Column(name="USERID")
-	@SequenceGenerator(name="USERID_SEQ", sequenceName="USERID_SEQ")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USERID_SEQ")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int userId;
 	
 	@Column(name="USERNAME")
