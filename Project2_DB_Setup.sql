@@ -35,8 +35,7 @@ create table if not exists reviews (
     recipesId int,
     score int,
     message text,
-    primary key (reviewId),
-    foreign key (recipesId) references recipes(recipeId) on delete cascade
+    primary key (reviewId, recipesId)
 );
 
 create table if not exists ingredients (
