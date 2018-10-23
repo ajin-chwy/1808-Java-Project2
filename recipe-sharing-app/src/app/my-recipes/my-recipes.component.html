@@ -1,3 +1,4 @@
+<div class="fullPage">
 <div *ngIf="ownedRecipes != undefined">
   <div class="card recipes" style="width: 20rem;" *ngFor="let rec of ownedRecipes">
       <div class="card-body">
@@ -14,4 +15,5 @@
       </div>
       <button class="btn" (click)="hide(rec)">Toggle Visibility</button>
   </div>
+</div>
 </div>

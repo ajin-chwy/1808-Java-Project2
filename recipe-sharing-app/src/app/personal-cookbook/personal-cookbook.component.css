@@ -10,3 +10,7 @@
     text-transform: uppercase;
     font-weight: 600;
 }
+
+.fullPage{
+    height: 100vh;
+}

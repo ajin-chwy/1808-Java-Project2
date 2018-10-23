@@ -1,3 +1,5 @@
+
+<div class="fullPage">
 <div *ngIf="savedRecipes != undefined">
   <div class="card recipes" style="width: 20rem;" *ngFor="let rec of savedRecipes | onlyVisibleRecipes: true">
       <div class="card-body">
@@ -14,4 +16,5 @@
       </div>
       <button class="btn" (click)="save(rec)">Cancel</button>
   </div>
+</div>
 </div>
