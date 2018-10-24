@@ -1,0 +1,16 @@
+.recipes{
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.card button{
+    background-color:#6F876E;
+    color: #EDF0E9;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.fullPage{
+    height: 100vh;
+}

@@ -1,0 +1,51 @@
+.fullPage{
+    height: 100vh;
+}
+
+#spacer{
+    padding-top: 20px;
+}
+
+#registerFormContainer{
+    background-color: white;
+    padding-top: 10px;
+    color: #585155;
+    width: 65%;
+}
+
+#registerFormContainer h1{
+    font-size: 1.5rem;
+    padding: 10px 0;
+}
+
+.blockLabel{
+    display: flex;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: .85rem;
+   text-align: left; 
+}
+
+#roleModalBtn{
+    background:none;
+    padding: 0;
+    margin: 0;
+}
+
+#registerFormContainer i{
+    padding-left: 5px;
+}
+
+#registerFormContainer input,
+#registerFormContainer select{
+    width: 100%;
+}
+
+#bottomBtns button, 
+#bottomBtns a{
+    margin: 10px;
+    background: #6F876E;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}

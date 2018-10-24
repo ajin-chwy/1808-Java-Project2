@@ -1,0 +1,16 @@
+nav{
+    background-color:#6F876E;
+    cursor: pointer;
+}
+
+nav .navbar-brand{
+    font-weight: 600;
+    color: #EDF0E9;
+    text-transform: uppercase;
+}
+
+nav .nav-link{
+    color: #EDF0E9;
+    text-transform: uppercase;
+    text-decoration: none;
+}

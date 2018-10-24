@@ -1,0 +1,66 @@
+#component{
+    height: 100vh;
+}
+
+#mainHeader{
+    padding-top: 15%;
+}
+
+#mainHeader h1{
+    font-size: 6rem;
+    color: #585155;
+}
+
+#mainHeader h3{
+    font-size: 2.25rem;
+    padding-left: 5%;
+    color:#585155;
+}
+
+#loginModalBtn,
+#registerBtn{
+    background-color: #6F876E;
+    border-radius: 25px;
+    color: white;
+    text-transform: uppercase;
+    width: 250px; 
+    margin: 0 15px;
+}
+
+button a{
+    color: white;
+}
+
+button a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+/* LOGIN FORM -- MODAL */
+#loginForm i{
+    padding-right: 10px;
+}
+
+#loginForm input{
+    background-color:transparent;
+    border: 0px solid;
+    padding: 10px 0 0 10px;
+    margin: 10px;
+    border-bottom: #585155 solid 1px;
+}
+
+#loginForm input:focus {
+    outline:none;
+}
+
+#loginForm button{
+    background-color: #6F876E;
+    width: 150px;
+    margin-top: 30px;
+    border-radius: 0px;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}

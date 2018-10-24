@@ -1,19 +1,12 @@
 package com.revature.pojos;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,12 +16,11 @@ public class Recipe {
 
 	@Id
 	@Column(name="RECIPEID")
-	@SequenceGenerator(name="RECIPEID_SEQ", sequenceName="RECIPEID_SEQ")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="RECIPEID_SEQ")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int recipeId;
 	
-	@OneToOne
-	@JoinColumn(name="USERID")
+	@ManyToOne
+	@JoinColumn(name="OWNER")
 	private User owner;
 	
 	@Column(name="NAME")
@@ -37,38 +29,53 @@ public class Recipe {
 	@Column(name="STEPS")
 	private String steps;
 	
+	@Column(name="INGREDIENTS")
+	private String ingredients;
+	
+	@Column(name="SCORE")
+	private double score;
+
 	@Column(name="DELETED")
 	private boolean deleted;
 	
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(name="RIJUNCTION",
-				joinColumns=@JoinColumn(name="RECIPE"),
-				inverseJoinColumns=@JoinColumn(name="INGREDIENT"))
-	private Set<Ingredient> ingredients;
+//	@ManyToMany(fetch=FetchType.LAZY)
+//	@JoinTable(name="RIJUNCTION",
+//				joinColumns=@JoinColumn(name="RECIPE"),
+//				inverseJoinColumns=@JoinColumn(name="INGREDIENT"))
+//	private Set<Ingredient> ingredients;
 	
-	@OneToMany(mappedBy="targetRecipe", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private Set<Review> reviews;
+//	@OneToMany(mappedBy="targetRecipe", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+//	private Set<Review> reviews;
 	
-	@OneToMany(mappedBy="targetRecipe", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private Set<Suggestion> suggestions;
+//	@OneToMany(mappedBy="targetRecipe", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+//	private Set<Suggestion> suggestions;
+
+
 
 	public Recipe() {
 		super();
 	}
 
-	public Recipe(int recipeId, User owner, String name, String steps, boolean deleted, Set<Ingredient> ingredients,
-			Set<Review> reviews, Set<Suggestion> suggestions) {
+public Recipe(int recipeId, User owner, String name, String steps, String ingredients, double score,
+			boolean deleted) {
 		super();
 		this.recipeId = recipeId;
 		this.owner = owner;
 		this.name = name;
 		this.steps = steps;
-		this.deleted = deleted;
 		this.ingredients = ingredients;
-		this.reviews = reviews;
-		this.suggestions = suggestions;
+		this.score = score;
+		this.deleted = deleted;
 	}
 
+	public String getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(String ingredients) {
+		this.ingredients = ingredients;
+	}
+	
 	public int getRecipeId() {
 		return recipeId;
 	}
@@ -109,36 +116,44 @@ public class Recipe {
 		this.deleted = deleted;
 	}
 
-	public Set<Ingredient> getIngredients() {
-		return ingredients;
+	public double getScore() {
+		return score;
 	}
 
-	public void setIngredients(Set<Ingredient> ingredients) {
-		this.ingredients = ingredients;
-	}
-
-	public Set<Review> getReviews() {
-		return reviews;
-	}
-
-	public void setReviews(Set<Review> reviews) {
-		this.reviews = reviews;
-	}
-
-	public Set<Suggestion> getSuggestions() {
-		return suggestions;
-	}
-
-	public void setSuggestions(Set<Suggestion> suggestions) {
-		this.suggestions = suggestions;
+	public void setScore(double score) {
+		this.score = score;
 	}
 
 	@Override
 	public String toString() {
 		return "Recipe [recipeId=" + recipeId + ", owner=" + owner + ", name=" + name + ", steps=" + steps
-				+ ", deleted=" + deleted + ", ingredients=" + ingredients + ", reviews=" + reviews + ", suggestions="
-				+ suggestions + "]";
+				+ ", ingredients=" + ingredients + ", score=" + score + ", deleted=" + deleted + "]";
 	}
+
+//	public Set<Ingredient> getIngredients() {
+//		return ingredients;
+//	}
+//
+//	public void setIngredients(Set<Ingredient> ingredients) {
+//		this.ingredients = ingredients;
+//	}
+//
+//	public Set<Review> getReviews() {
+//		return reviews;
+//	}
+//
+//	public void setReviews(Set<Review> reviews) {
+//		this.reviews = reviews;
+//	}
+//
+//	public Set<Suggestion> getSuggestions() {
+//		return suggestions;
+//	}
+//
+//	public void setSuggestions(Set<Suggestion> suggestions) {
+//		this.suggestions = suggestions;
+//	}
+
 	
 	
 	

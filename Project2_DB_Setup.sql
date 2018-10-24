@@ -1,5 +1,7 @@
 create table if not exists users (
-    userId int,
+    userId serial,
+    username text,
+    password text,
     role text,
     fName text,
     lName text,
@@ -9,10 +11,12 @@ create table if not exists users (
 );
 
 create table if not exists recipes (
-    recipeId int,
+    recipeId serial,
     owner int,
     name text,
     steps text,
+    ingredients text,
+    score decimal(3, 2),
     deleted boolean,
     primary key (recipeId),
     foreign key (owner) references users(userId)
@@ -31,8 +35,7 @@ create table if not exists reviews (
     recipesId int,
     score int,
     message text,
-    primary key (reviewId),
-    foreign key (recipesId) references recipes(recipeId) on delete cascade
+    primary key (reviewId, recipesId)
 );
 
 create table if not exists ingredients (
@@ -63,4 +66,6 @@ create sequence REVIEWSID_SEQ start 1;
 create sequence INGREDIENTID_SEQ start 1;
 create sequence SUGGESTIONID_SEQ start 1;
 --drop table suggestions, users, recipes, reviews, ingredients, rijunction, savedrecipes;
+--drop sequence USERID_SEQ, RECIPEID_SEQ, REVIEWSID_SEQ, INGREDIENTID_SEQ, SUGGESTIONID_SEQ;
 
+--drop table suggestions, reviews , rijunction, savedRecipes,recipes;
